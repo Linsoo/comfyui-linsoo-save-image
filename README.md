@@ -3,7 +3,13 @@
 대부분의 테스트는 Comfy 기본 노드들로 구성된 workflow에서 테스트 됐습니다. (커스텀 노드 사용시  제대로 작동 안할 수 있습니다.)
 <br>
 
-## 1. 설치방법.
+## 1. 필요 라이브러리
+```console
+pillow, piexif
+```
+<br>
+
+## 2. 설치방법.
 설치하려면 다음과 같이 이 저장소를 ComfyUI/custom_nodes 폴더로 복제합니다.
 
 ```console
@@ -16,7 +22,7 @@ ComfyUI-Manager 등록은 조금 뒤로 미룹니다. 처음에 번역기 돌려
 
 <br>
 
-## 2. 노드 소개
+## 3. 노드 소개
   ### - Linsoo Save Image
   ![스크린샷 2025-01-15 150752](https://github.com/user-attachments/assets/1c809b3a-ae9f-4aae-a51c-17451a0cd54e)
   파일 저장시 jpg와 webp를 추가한 커스텀 노드입니다.
@@ -59,13 +65,9 @@ ComfyUI-Manager 등록은 조금 뒤로 미룹니다. 처음에 번역기 돌려
   <br>
 
 
-## 3. 기타...
+## 4. 기타...
 
 >[!IMPORTANT]
 >이 노드 사용시 output 폴더에 extra_pnginfo.json, prompt.json 파일이 생깁니다. 에러 발생시 이 두 파일을 같이 올려주시면 디버깅에 큰 도움이 됩니다.
 
-블로그 : https://linsoo.pe.kr
-
-
-
-    
+블로그 : https://linsoo.pe.kr  

@@ -53,16 +53,8 @@ class LinsooSaveImage:
     def __init__(self):
         self.__reset()
 
-        #단부루 캐릭터명을 읽어들임
-        curdir = os.path.dirname(__file__)
+        # 단부루 캐릭터명 변수
         self.__danbooru_characters = {}
-        with open(curdir+"/danbooru_character.txt", "r", encoding="utf8") as file:
-            while True:
-                danbooru_character_name = file.readline()
-                if not danbooru_character_name:
-                    break
-                danbooru_character_name = danbooru_character_name.rstrip('\n')
-                self.__danbooru_characters[danbooru_character_name] = True
     # ------------------------------------------------------------------------
     def __reset(self):
         self.__m_ckpt_name = []
@@ -389,6 +381,18 @@ class LinsooSaveImage:
         # -------------------------------------------------------------------------
         if '%character_name%' in filename_prefix:
             found_char_names = set()
+
+            #단부루 캐릭터 이름 목록을 안 읽었다면 읽어들임
+            if len(self.__danbooru_characters) <=0:
+                curdir = os.path.dirname(__file__)
+                with open(curdir+"/danbooru_character.txt", "r", encoding="utf8") as file:
+                    while True:
+                        danbooru_character_name = file.readline()
+                        if not danbooru_character_name:
+                            break
+                        danbooru_character_name = danbooru_character_name.rstrip('\n')
+                        self.__danbooru_characters[danbooru_character_name] = True
+
             for tmp_prompt in self.__m_prompt.values():
                 tmp_text = tmp_prompt.get('text')
                 tmp_text = str(tmp_text).replace('\n','')
