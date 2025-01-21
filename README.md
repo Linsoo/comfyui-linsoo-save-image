@@ -64,6 +64,11 @@ ComfyUI-Manager 등록은 조금 뒤로 미룹니다. 처음에 번역기 돌려
   추천 이미지 사이즈 목록입니다. 많이 쓰는 이미지 해상도를 선택하면 됩니다.
   <br>
 
+  ### - Linsoo Multi Input Output
+  여러 그룹간에 연결을 간편하게 할려고 만든 노드.
+    - multi inputs :  8개 입력을 1라인으로 출력
+    - multi outputs : 1개 입력을 8라인으로 출력
+
 
 ## 4. 기타...
 
