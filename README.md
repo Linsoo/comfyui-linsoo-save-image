@@ -65,6 +65,7 @@ ComfyUI-Manager 등록은 조금 뒤로 미룹니다. 처음에 번역기 돌려
   <br>
 
   ### - Linsoo Multi Input Output
+  ![스크린샷 2025-01-21 205425](https://github.com/user-attachments/assets/4c18eee0-d4b2-4a03-9c18-d3cfd5136523)
   여러 그룹간에 연결을 간편하게 할려고 만든 노드.
     - multi inputs :  8개 입력을 1라인으로 출력
     - multi outputs : 1개 입력을 8라인으로 출력
