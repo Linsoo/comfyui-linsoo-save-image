@@ -24,7 +24,7 @@ ComfyUI-Manager 등록은 조금 뒤로 미룹니다. 처음에 번역기 돌려
 
 ## 3. 노드 소개
   ### - Linsoo Save Image
-  ![스크린샷 2025-01-15 150752](https://github.com/user-attachments/assets/1c809b3a-ae9f-4aae-a51c-17451a0cd54e)
+  ![스크린샷 2025-01-15 150752](https://image.linsoo.pe.kr/linsoosaveimage-2025-01-26-204620.webp)
   파일 저장시 jpg와 webp를 추가한 커스텀 노드입니다.
   #### 사용법
   **filename_prefix** : 저장 파일명 형식을 지정할 수 있습니다. 지원되는 변수는 아래와 같습니다.
@@ -41,23 +41,22 @@ ComfyUI-Manager 등록은 조금 뒤로 미룹니다. 처음에 번역기 돌려
     결과2) marcille donato_20250113_215923.webp
 
     캐릭터 이름은 (https://huggingface.co/datasets/Laxhar/noob-wiki/tree/main) 에 있는 danbooru_character.csv 파일 trigger 항목을 사용합니다.
-  **exif_format** : EXIF Comment 영역에 기록할 내용 형식을 지정할 수 있습니다. 지원되는 변수는 아래와 같습니다.
+   
+  **file_type** : jpg, webp, png 형식으로 저장 할 수 있습니다.
 
-    - 이미지 사이즈 : %width%, %height%
-    - 체크 포인트 이름, 해쉬값 : %ckpt%, %ckpt_hash%
-    - 샘플러 정보 : %seed%, %steps%, %cfg%, %sampler_name%, %scheduler%, %denoise%
-    - Clip Skip : %clipskip%
-    - 프롬프트 :  %positive%, %negative%
-    - 로라 목록(로라이름:해쉬값) : %loras%
+  **quality** : jpg, webp의 화질을 설정하는 값이며 -1을 입력할 경우 webp는 무손실 방식으로 저장되고 jpg는 0으로 대체됩니다. 
+  1~100의 구간은 webp, jpg 둘다 손실 압축으로 저장되며 기본값은 90입니다. 
+  png의 경우 해당 옵션에 영향을 받지 않습니다.
   
-  **file_type** : jpg, webp, png 형식으로 저장 할 수 있으며 exif_format은 jpg, webp만 적용됩니다. (png는 기존 저장 방식으로 작동합니다.)<br>
-  **quality** : 저장 화질을 설정하는 값이며 -1(무손실), 1 ~ 100(손실압축) 의 구간을 가집니다. 기본값은 90입니다.<br>
-  **save_option** : 메타 정보를 저장할 위치를 지정하며 옵션은 아래와 같습니다.
+  **meta_save_type** : 메타 저장 형식에 대한 옵션이며 각 항목은 아래와 같습니다.
 
     - None : EXIF 정보를 저장하지 않습니다.
-    - Image(include meta) : 메타정보를 이미지 안에 저장합니다. (webp는 exif_format+workflow,  jpg는 exif_format)
-    - Image(include meta)+JSON : 메타 정보를 이미지와 JSON 파일로 저장합니다. 
-  <br>
+    - A1111 WebUI (webp,png) : stable-diffusion-webui 과 유사한 형식으로 저장합니다. (webp,jpg 형식에서 사용할 수 있습니다)    
+    - ComfyUI (webp,png) : ComfyUI 기본 형식으로 저장합니다. (webp,png 형식에서 사용할 수 있습니다)
+  
+  ![civitai 호환이미지](https://image.linsoo.pe.kr/civitai-2025-01-26-204709.webp)
+  Civitai.com에 업로드시 프롬프트를 자동인식 하게 할려면 <span style="color:red">png+Comfy, jpg+a1111, webp+a1111</span> 방식으로 저장을 해야 합니다.
+
   
   ### - Linsoo Empty Latent Image
   ![스크린샷 2025-01-15 210313](https://github.com/user-attachments/assets/0fcd9ca2-755d-46ec-88d9-a91a81a94fb1)
@@ -76,4 +75,5 @@ ComfyUI-Manager 등록은 조금 뒤로 미룹니다. 처음에 번역기 돌려
 >[!IMPORTANT]
 >이 노드 사용시 output 폴더에 extra_pnginfo.json, prompt.json 파일이 생깁니다. 에러 발생시 이 두 파일을 같이 올려주시면 디버깅에 큰 도움이 됩니다.
 
-블로그 : https://linsoo.pe.kr  
+블로그 : https://linsoo.pe.kr
+버전 : 1.2.2
